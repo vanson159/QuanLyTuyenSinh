@@ -11,7 +11,7 @@ namespace QuanLyTuyenSinh
     public static class Connect_DB
     {
         public static SqlConnection conn = null;
-        static String strConn = "Data Source = DESKTOP-2CNH1HR; Database = tuyensinhthpt; Integrated Security = True";
+        static String strConn = @"Data Source=uongsuadaubung\hihi;Initial Catalog=tuyensinhthpt;Integrated Security=True";
         public static void openConn()
         {
             if (conn == null)
@@ -28,7 +28,7 @@ namespace QuanLyTuyenSinh
         }
         public static SqlConnection connect()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source = DESKTOP-2CNH1HR; Database = tuyensinhthpt; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(@"Data Source=uongsuadaubung\hihi;Initial Catalog=tuyensinhthpt;Integrated Security=True");
             return conn;
         }
     }
