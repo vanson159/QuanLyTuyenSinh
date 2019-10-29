@@ -13,6 +13,9 @@ namespace QuanLyTuyenSinh
 {
     public partial class UpdateStudent : Form
     {
+        public delegate void LoadFormDelegate(object sender, EventArgs e);
+        public LoadFormDelegate loadFromDelegate;
+
         public UpdateStudent()
         {
             InitializeComponent();
@@ -20,7 +23,8 @@ namespace QuanLyTuyenSinh
 
         private void UpdateStudent_Load(object sender, EventArgs e)
         {
-
+            cb_gioitinh.Items.Add("Nam");
+            cb_gioitinh.Items.Add("Nữ");
         }
 
         private void btn_hoanthanh_Click(object sender, EventArgs e)
@@ -29,7 +33,7 @@ namespace QuanLyTuyenSinh
             if (dl == DialogResult.Yes)
             {
                
-                string ngaysinh = dtp_ngaysinh.Value.ToString("dd/MM/yyyy");
+                string ngaysinh = dtp_ngaysinh.Value.ToString("MM/dd/yyyy");
                 string query = @"update hocsinh set hoten = N'" + txt_hoten.Text + "' , gioitinh=N'" + cb_gioitinh.Text + "', diachi=N'" + txt_diachi.Text + "', lop = N'" + txt_lop.Text + "', email=N'" + txt_email.Text + "' , sdt=N'" + txt_sdt.Text + "',hokhau=N'" + txt_hokhau.Text + "',matruong = " + txt_matruong.Text + ", ngaysinh='" + ngaysinh + "'" +
                                 "where mahocsinh =" + txt_mahs.Text;
                 Connect_DB.openConn();
@@ -40,7 +44,7 @@ namespace QuanLyTuyenSinh
                 if (a > 0)
                 {
                     MessageBox.Show("Sửa thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-
+                    this.Close();
                 }
             }
         }
@@ -48,6 +52,11 @@ namespace QuanLyTuyenSinh
         private void btn_huy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UpdateStudent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            loadFromDelegate(this, EventArgs.Empty);
         }
     }
 }
