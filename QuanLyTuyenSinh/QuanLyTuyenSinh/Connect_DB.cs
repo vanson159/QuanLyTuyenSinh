@@ -28,7 +28,7 @@ namespace QuanLyTuyenSinh
         }
         public static SqlConnection connect()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source = DESKTOP-2CNH1HR; Database = tuyensinhthpt; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(@"Data Source = DESKTOP-7V8H1NS; Database = tuyensinhthpt; Integrated Security = True");
             return conn;
         }
     }

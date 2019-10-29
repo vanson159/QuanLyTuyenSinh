@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabCon = new System.Windows.Forms.TabControl();
+            this.tab_QLHS = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -47,6 +47,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtp_ngaysinh = new System.Windows.Forms.DateTimePicker();
+            this.cb_gioitinh = new System.Windows.Forms.ComboBox();
             this.txt_mahs = new System.Windows.Forms.TextBox();
             this.txt_tenhs = new System.Windows.Forms.TextBox();
             this.txt_diachi = new System.Windows.Forms.TextBox();
@@ -58,7 +60,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Capnhat = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mahocsinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,10 +84,8 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cb_gioitinh = new System.Windows.Forms.ComboBox();
-            this.dtp_ngaysinh = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tabCon.SuspendLayout();
+            this.tab_QLHS.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -92,7 +93,7 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Capnhat)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -104,7 +105,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tabCon, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tab_QLHS, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -126,18 +127,19 @@
             this.label1.Text = "QUẢN LÝ HỌC SINH";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabCon
+            // tab_QLHS
             // 
-            this.tabCon.Controls.Add(this.tabPage1);
-            this.tabCon.Controls.Add(this.tabPage2);
-            this.tabCon.Controls.Add(this.tabPage3);
-            this.tabCon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabCon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCon.Location = new System.Drawing.Point(3, 53);
-            this.tabCon.Name = "tabCon";
-            this.tabCon.SelectedIndex = 0;
-            this.tabCon.Size = new System.Drawing.Size(1125, 490);
-            this.tabCon.TabIndex = 1;
+            this.tab_QLHS.Controls.Add(this.tabPage1);
+            this.tab_QLHS.Controls.Add(this.tabPage2);
+            this.tab_QLHS.Controls.Add(this.tabPage3);
+            this.tab_QLHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tab_QLHS.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab_QLHS.Location = new System.Drawing.Point(3, 53);
+            this.tab_QLHS.Name = "tab_QLHS";
+            this.tab_QLHS.SelectedIndex = 0;
+            this.tab_QLHS.Size = new System.Drawing.Size(1125, 490);
+            this.tab_QLHS.TabIndex = 1;
+            this.tab_QLHS.Click += new System.EventHandler(this.tab_QLHS_Click_1);
             // 
             // tabPage1
             // 
@@ -325,6 +327,25 @@
             this.panel1.Size = new System.Drawing.Size(549, 394);
             this.panel1.TabIndex = 2;
             // 
+            // dtp_ngaysinh
+            // 
+            this.dtp_ngaysinh.CustomFormat = "dd/MM/yyyy";
+            this.dtp_ngaysinh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_ngaysinh.Location = new System.Drawing.Point(225, 153);
+            this.dtp_ngaysinh.Name = "dtp_ngaysinh";
+            this.dtp_ngaysinh.Size = new System.Drawing.Size(150, 22);
+            this.dtp_ngaysinh.TabIndex = 16;
+            // 
+            // cb_gioitinh
+            // 
+            this.cb_gioitinh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_gioitinh.FormattingEnabled = true;
+            this.cb_gioitinh.Location = new System.Drawing.Point(225, 256);
+            this.cb_gioitinh.Name = "cb_gioitinh";
+            this.cb_gioitinh.Size = new System.Drawing.Size(150, 24);
+            this.cb_gioitinh.TabIndex = 15;
+            // 
             // txt_mahs
             // 
             this.txt_mahs.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -430,7 +451,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.dgv_Capnhat);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -439,10 +460,11 @@
             this.tabPage2.Text = "Cập nhật thông tin";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgv_Capnhat
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_Capnhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Capnhat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.mahocsinh,
             this.hoten,
             this.gioitinh,
@@ -453,65 +475,83 @@
             this.sdt,
             this.hokhau,
             this.matruong});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1111, 455);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_Capnhat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Capnhat.Location = new System.Drawing.Point(3, 3);
+            this.dgv_Capnhat.Name = "dgv_Capnhat";
+            this.dgv_Capnhat.Size = new System.Drawing.Size(1111, 455);
+            this.dgv_Capnhat.TabIndex = 0;
+            this.dgv_Capnhat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Capnhat_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Cập nhật";
+            this.Column1.Name = "Column1";
+            this.Column1.Text = "Sửa";
+            this.Column1.UseColumnTextForButtonValue = true;
             // 
             // mahocsinh
             // 
+            this.mahocsinh.DataPropertyName = "mahocsinh";
             this.mahocsinh.HeaderText = "Mã HS";
             this.mahocsinh.Name = "mahocsinh";
             // 
             // hoten
             // 
+            this.hoten.DataPropertyName = "hoten";
             this.hoten.HeaderText = "Họ Tên";
             this.hoten.Name = "hoten";
             this.hoten.Width = 180;
             // 
             // gioitinh
             // 
+            this.gioitinh.DataPropertyName = "gioitinh";
             this.gioitinh.HeaderText = "Giới tính";
             this.gioitinh.Name = "gioitinh";
             this.gioitinh.Width = 80;
             // 
             // ngaysinh
             // 
+            this.ngaysinh.DataPropertyName = "ngaysinh";
             this.ngaysinh.HeaderText = "Ngày sinh";
             this.ngaysinh.Name = "ngaysinh";
             // 
             // diachi
             // 
+            this.diachi.DataPropertyName = "diachi";
             this.diachi.HeaderText = "Địa chỉ";
             this.diachi.Name = "diachi";
             this.diachi.Width = 180;
             // 
             // lop
             // 
+            this.lop.DataPropertyName = "lop";
             this.lop.HeaderText = "Lớp";
             this.lop.Name = "lop";
             this.lop.Width = 70;
             // 
             // email
             // 
+            this.email.DataPropertyName = "email";
             this.email.HeaderText = "Email";
             this.email.Name = "email";
             this.email.Width = 180;
             // 
             // sdt
             // 
+            this.sdt.DataPropertyName = "sdt";
             this.sdt.HeaderText = "Số điện thoại";
             this.sdt.Name = "sdt";
             // 
             // hokhau
             // 
+            this.hokhau.DataPropertyName = "hokhau";
             this.hokhau.HeaderText = "Hộ khẩu";
             this.hokhau.Name = "hokhau";
             this.hokhau.Width = 180;
             // 
             // matruong
             // 
+            this.matruong.DataPropertyName = "matruong";
             this.matruong.HeaderText = "Mã trường";
             this.matruong.Name = "matruong";
             this.matruong.ReadOnly = true;
@@ -604,23 +644,6 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // cb_gioitinh
-            // 
-            this.cb_gioitinh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_gioitinh.FormattingEnabled = true;
-            this.cb_gioitinh.Location = new System.Drawing.Point(225, 256);
-            this.cb_gioitinh.Name = "cb_gioitinh";
-            this.cb_gioitinh.Size = new System.Drawing.Size(150, 24);
-            this.cb_gioitinh.TabIndex = 15;
-            // 
-            // dtp_ngaysinh
-            // 
-            this.dtp_ngaysinh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_ngaysinh.Location = new System.Drawing.Point(225, 153);
-            this.dtp_ngaysinh.Name = "dtp_ngaysinh";
-            this.dtp_ngaysinh.Size = new System.Drawing.Size(150, 22);
-            this.dtp_ngaysinh.TabIndex = 16;
-            // 
             // QuanLyHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -634,7 +657,7 @@
             this.Load += new System.EventHandler(this.QuanLyHocSinh_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tabCon.ResumeLayout(false);
+            this.tab_QLHS.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -644,7 +667,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Capnhat)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -655,7 +678,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabCon;
+        private System.Windows.Forms.TabControl tab_QLHS;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -684,17 +707,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mahocsinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gioitinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaysinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diachi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hokhau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matruong;
+        private System.Windows.Forms.DataGridView dgv_Capnhat;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -708,5 +721,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.ComboBox cb_gioitinh;
         private System.Windows.Forms.DateTimePicker dtp_ngaysinh;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mahocsinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gioitinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaysinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diachi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hokhau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matruong;
     }
 }
