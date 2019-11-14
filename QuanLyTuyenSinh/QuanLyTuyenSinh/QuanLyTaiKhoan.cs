@@ -62,7 +62,7 @@ namespace QuanLyTuyenSinh
                 QuanLyTaiKhoan_Load(sender, e);
                 Connect_DB.closeConn();
             }
-            
+
         }
 
         private void dgv_taikhoan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -83,7 +83,7 @@ namespace QuanLyTuyenSinh
             string mk = tb_mk.Text;
 
             Connect_DB.openConn();
-            string lenh = @"update taikhoan set tentaikhoan = N'"+tenDN+"' , matkhau=N'"+mk+"' where mataikhoan = "+maTk;
+            string lenh = @"update taikhoan set tentaikhoan = N'" + tenDN + "' , matkhau=N'" + mk + "' where mataikhoan = " + maTk;
             SqlCommand cmd = new SqlCommand(lenh, Connect_DB.conn);
             cmd.CommandType = CommandType.Text;
             int a = cmd.ExecuteNonQuery();
@@ -108,7 +108,7 @@ namespace QuanLyTuyenSinh
             else
             {
                 Connect_DB.openConn();
-                string lenh = @"delete taikhoan where mataikhoan ="+maTk;
+                string lenh = @"delete taikhoan where mataikhoan =" + maTk;
                 SqlCommand cmd = new SqlCommand(lenh, Connect_DB.conn);
                 cmd.CommandType = CommandType.Text;
                 int a = cmd.ExecuteNonQuery();
@@ -120,6 +120,25 @@ namespace QuanLyTuyenSinh
                 tb_matk.Text = null;
                 tb_tenDN.Text = null;
                 tb_mk.Text = null;
+                Connect_DB.closeConn();
+            }
+        }
+
+
+
+        private void cb_maGV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Connect_DB.openConn();
+            String maGV = cb_maGV.Text.ToString();
+            if (maGV != null || maGV != "")
+            {
+                string queryMGV = "Select * from giaovien where magiaovien=" + maGV;
+                SqlCommand cmd2 = new SqlCommand(queryMGV, Connect_DB.conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd2);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                string tenGV = ds.Tables[0].Rows[0].Field<string>(1);
+                tb_tengv.Text = tenGV;
                 Connect_DB.closeConn();
             }
         }
