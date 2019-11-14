@@ -21,9 +21,24 @@ namespace QuanLyTuyenSinh
 
         private void QuanLyHocSinh_Load(object sender, EventArgs e)
         {
-          
+
+            // Fill data to combobox mã trường
+            Connect_DB.openConn();
+            string query = "Select * from truongthcs";
+            SqlCommand cmd = new SqlCommand(query, Connect_DB.conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            cb_matruong.DataSource = ds.Tables[0];
+            cb_matruong.ValueMember = "matruong";
+            cb_matruong.DisplayMember = "matruong";
+            cb_matruong.Enabled =true;
+
+
             cb_gioitinh.Items.Add("Nam");
             cb_gioitinh.Items.Add("Nữ");
+
+
         }
 
         private void btn_tao_Click(object sender, EventArgs e)
@@ -35,7 +50,7 @@ namespace QuanLyTuyenSinh
             string email = txt_email.Text;
             string sdt = txt_sdt.Text;
             string hokhau = txt_hokhau.Text;
-            string matruong = txt_matruong.Text;
+            string matruong = cb_matruong.Text;
             string ngaysinh = dtp_ngaysinh.Value.ToString("MM/dd/yyyy");
 
             
@@ -119,5 +134,7 @@ namespace QuanLyTuyenSinh
                 }
             }
         }
+
+        
     }
 }
