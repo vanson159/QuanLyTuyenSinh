@@ -124,15 +124,13 @@ namespace QuanLyTuyenSinh
             }
         }
 
-
-
-        private void cb_maGV_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_maGV_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Connect_DB.openConn();
             String maGV = cb_maGV.Text.ToString();
             if (maGV != null || maGV != "")
             {
-                string queryMGV = "Select * from giaovien where magiaovien=" + maGV;
+                string queryMGV = @"select * from giaovien where magiaovien=" + maGV;
                 SqlCommand cmd2 = new SqlCommand(queryMGV, Connect_DB.conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 DataSet ds = new DataSet();
