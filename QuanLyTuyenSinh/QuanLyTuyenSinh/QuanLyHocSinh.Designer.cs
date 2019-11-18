@@ -36,8 +36,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btn_tao = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cb_matruong = new System.Windows.Forms.ComboBox();
             this.txt_lop = new System.Windows.Forms.TextBox();
-            this.txt_matruong = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_hokhau = new System.Windows.Forms.TextBox();
             this.txt_sdt = new System.Windows.Forms.TextBox();
@@ -192,8 +192,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cb_matruong);
             this.panel2.Controls.Add(this.txt_lop);
-            this.panel2.Controls.Add(this.txt_matruong);
             this.panel2.Controls.Add(this.txt_email);
             this.panel2.Controls.Add(this.txt_hokhau);
             this.panel2.Controls.Add(this.txt_sdt);
@@ -208,6 +208,16 @@
             this.panel2.Size = new System.Drawing.Size(550, 394);
             this.panel2.TabIndex = 3;
             // 
+            // cb_matruong
+            // 
+            this.cb_matruong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_matruong.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_matruong.FormattingEnabled = true;
+            this.cb_matruong.Location = new System.Drawing.Point(182, 256);
+            this.cb_matruong.Name = "cb_matruong";
+            this.cb_matruong.Size = new System.Drawing.Size(150, 24);
+            this.cb_matruong.TabIndex = 16;
+            // 
             // txt_lop
             // 
             this.txt_lop.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,14 +225,6 @@
             this.txt_lop.Name = "txt_lop";
             this.txt_lop.Size = new System.Drawing.Size(150, 22);
             this.txt_lop.TabIndex = 12;
-            // 
-            // txt_matruong
-            // 
-            this.txt_matruong.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_matruong.Location = new System.Drawing.Point(182, 256);
-            this.txt_matruong.Name = "txt_matruong";
-            this.txt_matruong.Size = new System.Drawing.Size(150, 22);
-            this.txt_matruong.TabIndex = 11;
             // 
             // txt_email
             // 
@@ -336,6 +338,7 @@
             // 
             // cb_gioitinh
             // 
+            this.cb_gioitinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_gioitinh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_gioitinh.FormattingEnabled = true;
             this.cb_gioitinh.Location = new System.Drawing.Point(225, 205);
@@ -683,7 +686,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btn_tao;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txt_matruong;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_hokhau;
         private System.Windows.Forms.TextBox txt_sdt;
@@ -702,7 +704,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgv_Capnhat;
-        private System.Windows.Forms.ComboBox cb_gioitinh;
         private System.Windows.Forms.DateTimePicker dtp_ngaysinh;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mahocsinh;
@@ -727,5 +728,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.ComboBox cb_matruong;
+        private System.Windows.Forms.ComboBox cb_gioitinh;
     }
 }
