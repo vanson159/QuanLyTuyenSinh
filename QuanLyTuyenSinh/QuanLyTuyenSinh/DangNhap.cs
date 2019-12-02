@@ -30,11 +30,11 @@ namespace QuanLyTuyenSinh
             String mk = txtMK.Text;
             SqlConnection conn = Connect_DB.connect();
             conn.Open();
-            string queryString = "SELECT * FROM taikhoan where tentaikhoan = @tentaikhoan and matkhau = @matkhau;";
+            string queryString = "SELECT * FROM taikhoan where tentaikhoan =N'"+tendn+"' and matkhau = N'"+mk+"';";
 
             SqlCommand command = new SqlCommand(queryString, conn);
-                command.Parameters.Add("@tentaikhoan", SqlDbType.NVarChar, 50).Value = tendn;
-                command.Parameters.Add("@matkhau", SqlDbType.NVarChar, 255).Value = Hash(mk);
+                //command.Parameters.Add("@tentaikhoan", SqlDbType.NVarChar, 50).Value = tendn;
+                //command.Parameters.Add("@matkhau", SqlDbType.NVarChar, 255).Value = Hash(mk);
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 if (reader.HasRows)
