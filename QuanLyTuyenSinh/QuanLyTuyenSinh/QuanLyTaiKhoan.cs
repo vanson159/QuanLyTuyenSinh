@@ -7,6 +7,8 @@ namespace QuanLyTuyenSinh
 {
     public partial class QuanLyTaiKhoan : Form
     {
+        private string maTk, tenDN, mk, mess;
+
         public QuanLyTaiKhoan()
         {
             InitializeComponent();
@@ -24,7 +26,6 @@ namespace QuanLyTuyenSinh
             dgv_taikhoan.DataSource = dtb;
 
             // Select mã giáo viên cho combobox
-
             string queryMGV = "Select * from giaovien";
             SqlCommand cmd2 = new SqlCommand(queryMGV, Connect_DB.conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd2);
@@ -41,13 +42,9 @@ namespace QuanLyTuyenSinh
         {
             string maGV = cb_maGV.Text;
             string tenGV = tb_tengv.Text;
-            string tenDN = tb_tenDN.Text;
-            string mk = tb_mk.Text;
-            if (tenDN == "" || mk == "")
-            {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu  không được để trống!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-            }
-            else
+            tenDN = tb_tenDN.Text;
+            mk = tb_mk.Text;
+            if (checkValidate())
             {
                 Connect_DB.openConn();
                 string lenh = @"insert into taikhoan(magiaovien,matkhau,tentaikhoan)
@@ -62,7 +59,10 @@ namespace QuanLyTuyenSinh
                 QuanLyTaiKhoan_Load(sender, e);
                 Connect_DB.closeConn();
             }
-
+            else
+            {
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
         }
 
         private void dgv_taikhoan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -78,24 +78,37 @@ namespace QuanLyTuyenSinh
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            string maTk = tb_matk.Text;
-            string tenDN = tb_tenDN.Text;
-            string mk = tb_mk.Text;
-
-            Connect_DB.openConn();
-            string lenh = @"update taikhoan set tentaikhoan = N'" + tenDN + "' , matkhau=N'" + mk + "' where mataikhoan = " + maTk;
-            SqlCommand cmd = new SqlCommand(lenh, Connect_DB.conn);
-            cmd.CommandType = CommandType.Text;
-            int a = cmd.ExecuteNonQuery();
-            if (a > 0)
+            maTk = tb_matk.Text;
+            tenDN = tb_tenDN.Text;
+            mk = tb_mk.Text;
+            if (maTk == "")
             {
-                MessageBox.Show("Cập nhật thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Bạn phải chọn tài khoản để cập nhật!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
-            QuanLyTaiKhoan_Load(sender, e);
-            tb_matk.Text = null;
-            tb_tenDN.Text = null;
-            tb_mk.Text = null;
-            Connect_DB.closeConn();
+            else
+            {
+                if (checkValidate())
+                {
+                    Connect_DB.openConn();
+                    string lenh = @"update taikhoan set tentaikhoan = N'" + tenDN + "' , matkhau=N'" + mk + "' where mataikhoan = " + maTk;
+                    SqlCommand cmd = new SqlCommand(lenh, Connect_DB.conn);
+                    cmd.CommandType = CommandType.Text;
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+                        MessageBox.Show("Cập nhật thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    QuanLyTaiKhoan_Load(sender, e);
+                    tb_matk.Text = null;
+                    tb_tenDN.Text = null;
+                    tb_mk.Text = null;
+                    Connect_DB.closeConn();
+                }
+                else
+                {
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -107,20 +120,24 @@ namespace QuanLyTuyenSinh
             }
             else
             {
-                Connect_DB.openConn();
-                string lenh = @"delete taikhoan where mataikhoan =" + maTk;
-                SqlCommand cmd = new SqlCommand(lenh, Connect_DB.conn);
-                cmd.CommandType = CommandType.Text;
-                int a = cmd.ExecuteNonQuery();
-                if (a > 0)
+                DialogResult dl = MessageBox.Show("Bạn có chắc muốn xóa", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dl == DialogResult.Yes)
                 {
-                    MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    Connect_DB.openConn();
+                    string lenh = @"delete taikhoan where mataikhoan =" + maTk;
+                    SqlCommand cmd = new SqlCommand(lenh, Connect_DB.conn);
+                    cmd.CommandType = CommandType.Text;
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    QuanLyTaiKhoan_Load(sender, e);
+                    tb_matk.Text = null;
+                    tb_tenDN.Text = null;
+                    tb_mk.Text = null;
+                    Connect_DB.closeConn();
                 }
-                QuanLyTaiKhoan_Load(sender, e);
-                tb_matk.Text = null;
-                tb_tenDN.Text = null;
-                tb_mk.Text = null;
-                Connect_DB.closeConn();
             }
         }
 
@@ -139,6 +156,38 @@ namespace QuanLyTuyenSinh
                 tb_tengv.Text = tenGV;
                 Connect_DB.closeConn();
             }
+        }
+
+        private void cb_maGV_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Connect_DB.openConn();
+            String maGV = cb_maGV.Text.ToString();
+            if (maGV != null || maGV != "")
+            {
+                string queryMGV = @"select * from giaovien where magiaovien=" + maGV;
+                SqlCommand cmd2 = new SqlCommand(queryMGV, Connect_DB.conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd2);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                string tenGV = ds.Tables[0].Rows[0].Field<string>(1);
+                tb_tengv.Text = tenGV;
+                Connect_DB.closeConn();
+            }
+        }
+
+        public bool checkValidate()
+        {
+            // Check null
+            if (tenDN == "" || mk=="")
+            {
+                mess = "Tên đăng nhập hoặc mật khẩu không được trống";
+                return false;
+            }else if(mk.Length < 6)
+            {
+                mess = "Mật khẩu phải lớn hơn 6 kí tự";
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -236,6 +236,7 @@
             this.cb_maGV.Size = new System.Drawing.Size(121, 24);
             this.cb_maGV.TabIndex = 15;
             this.cb_maGV.SelectionChangeCommitted += new System.EventHandler(this.cb_maGV_SelectionChangeCommitted);
+            this.cb_maGV.SelectedValueChanged += new System.EventHandler(this.cb_maGV_SelectedValueChanged);
             // 
             // QuanLyTaiKhoan
             // 

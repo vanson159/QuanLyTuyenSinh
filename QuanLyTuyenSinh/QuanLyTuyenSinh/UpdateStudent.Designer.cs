@@ -39,7 +39,6 @@
             this.txt_hokhau = new System.Windows.Forms.TextBox();
             this.txt_hoten = new System.Windows.Forms.TextBox();
             this.txt_diachi = new System.Windows.Forms.TextBox();
-            this.txt_matruong = new System.Windows.Forms.TextBox();
             this.txt_mahs = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_huy = new System.Windows.Forms.Button();
             this.btn_hoanthanh = new System.Windows.Forms.Button();
+            this.cb_matruong = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -90,6 +90,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cb_matruong);
             this.panel1.Controls.Add(this.dtp_ngaysinh);
             this.panel1.Controls.Add(this.cb_gioitinh);
             this.panel1.Controls.Add(this.txt_lop);
@@ -98,7 +99,6 @@
             this.panel1.Controls.Add(this.txt_hokhau);
             this.panel1.Controls.Add(this.txt_hoten);
             this.panel1.Controls.Add(this.txt_diachi);
-            this.panel1.Controls.Add(this.txt_matruong);
             this.panel1.Controls.Add(this.txt_mahs);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
@@ -184,14 +184,6 @@
             this.txt_diachi.Name = "txt_diachi";
             this.txt_diachi.Size = new System.Drawing.Size(194, 22);
             this.txt_diachi.TabIndex = 12;
-            // 
-            // txt_matruong
-            // 
-            this.txt_matruong.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_matruong.Location = new System.Drawing.Point(504, 165);
-            this.txt_matruong.Name = "txt_matruong";
-            this.txt_matruong.Size = new System.Drawing.Size(100, 22);
-            this.txt_matruong.TabIndex = 11;
             // 
             // txt_mahs
             // 
@@ -334,6 +326,16 @@
             this.btn_hoanthanh.UseVisualStyleBackColor = true;
             this.btn_hoanthanh.Click += new System.EventHandler(this.btn_hoanthanh_Click);
             // 
+            // cb_matruong
+            // 
+            this.cb_matruong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_matruong.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_matruong.FormattingEnabled = true;
+            this.cb_matruong.Location = new System.Drawing.Point(504, 163);
+            this.cb_matruong.Name = "cb_matruong";
+            this.cb_matruong.Size = new System.Drawing.Size(100, 24);
+            this.cb_matruong.TabIndex = 20;
+            // 
             // UpdateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,7 +366,6 @@
         public System.Windows.Forms.TextBox txt_hokhau;
         public System.Windows.Forms.TextBox txt_hoten;
         public System.Windows.Forms.TextBox txt_diachi;
-        public System.Windows.Forms.TextBox txt_matruong;
         public System.Windows.Forms.TextBox txt_mahs;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -381,5 +382,6 @@
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Button btn_huy;
         public System.Windows.Forms.Button btn_hoanthanh;
+        public System.Windows.Forms.ComboBox cb_matruong;
     }
 }
