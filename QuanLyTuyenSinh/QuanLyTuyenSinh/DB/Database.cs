@@ -13,7 +13,7 @@ namespace Ecec.DB
             {
                 if (_connectionString.Equals(""))
                 {
-                    _connectionString = @"Data Source=DESKTOP-2CNH1HR;Initial Catalog=tuyensinhthpt;Integrated Security=True";
+                    _connectionString = @"Data Source = DESKTOP-7V8H1NS; Database = tuyensinhthpt; Integrated Security = True";
                 }
                 return _connectionString;
             }
